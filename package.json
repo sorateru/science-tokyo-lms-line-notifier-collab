@@ -1,0 +1,27 @@
+{
+  "name": "science-tokyo-lms-line-notifier",
+  "version": "0.1.0",
+  "private": true,
+  "license": "UNLICENSED",
+  "type": "module",
+  "scripts": {
+    "setup": "node scripts/setup.mjs",
+    "start": "node --disable-warning=ExperimentalWarning src/server.mjs",
+    "dev": "node --watch --disable-warning=ExperimentalWarning src/server.mjs",
+    "doctor": "node src/doctor.mjs",
+    "lms:test": "node src/lms-connection-check.mjs",
+    "test": "node --disable-warning=ExperimentalWarning --test",
+    "cloud:dev": "wrangler dev",
+    "cloud:migrate:local": "wrangler d1 migrations apply science-tokyo-task-notifier --local",
+    "cloud:migrate": "wrangler d1 migrations apply science-tokyo-task-notifier --remote",
+    "cloud:secrets": "node scripts/upload-cloud-secrets.mjs",
+    "precloud:deploy": "npm test",
+    "cloud:deploy": "wrangler deploy"
+  },
+  "engines": {
+    "node": ">=22.5"
+  },
+  "devDependencies": {
+    "wrangler": "^4.147.0"
+  }
+}

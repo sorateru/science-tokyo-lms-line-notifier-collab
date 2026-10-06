@@ -1,0 +1,56 @@
+<!doctype html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>課題リマインダー</title>
+  <link rel="stylesheet" href="/style.css">
+</head>
+<body>
+  <main>
+    <header>
+      <div>
+        <p class="eyebrow">SCIENCE TOKYO</p>
+        <h1>課題リマインダー</h1>
+        <p class="sub">LMSの締切も、口頭で出た課題も、ひとつに。</p>
+      </div>
+      <div class="actions">
+        <button id="sync" class="secondary">LMSを同期</button>
+        <button id="test" class="secondary">LINEテスト</button>
+        <button id="open-form">＋ 手動で追加</button>
+      </div>
+    </header>
+
+    <section id="status" class="status"></section>
+    <section class="filters">
+      <button class="filter active" data-filter="active">未完了</button>
+      <button class="filter" data-filter="all">すべて</button>
+    </section>
+    <section id="tasks" class="task-list"></section>
+
+    <dialog id="task-dialog">
+      <form id="task-form">
+        <div class="dialog-head">
+          <h2 id="form-title">課題を手動登録</h2>
+          <button type="button" id="close-form" class="icon">×</button>
+        </div>
+        <label>科目名<input name="course" placeholder="例：確率論基礎"></label>
+        <label>課題名<input name="title" required placeholder="例：演習レポート第3回"></label>
+        <label>締切<input name="dueAt" type="datetime-local" required></label>
+        <label>課題URL<input name="url" type="url" placeholder="https://..."></label>
+        <label>通知タイミング
+          <input name="offsets" value="1440, 720, 180" inputmode="numeric">
+          <small>締切の何分前かをカンマ区切り（1日前=1440、12時間前=720、3時間前=180）</small>
+        </label>
+        <div class="two-column">
+          <label>繰り返し間隔（分）<input name="repeatIntervalMinutes" type="number" min="0" value="0"></label>
+          <label>開始（締切の何分前）<input name="repeatWindowMinutes" type="number" min="0" value="1440"></label>
+        </div>
+        <button id="form-submit" type="submit">登録する</button>
+      </form>
+    </dialog>
+    <div id="toast" role="status"></div>
+  </main>
+  <script type="module" src="/app.js"></script>
+</body>
+</html>

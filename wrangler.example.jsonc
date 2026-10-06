@@ -1,0 +1,28 @@
+{
+  "$schema": "./node_modules/wrangler/config-schema.json",
+  "name": "science-tokyo-task-notifier",
+  "main": "cloud/worker.mjs",
+  "compatibility_date": "2026-09-14",
+  "assets": {
+    "directory": "./public",
+    "binding": "ASSETS",
+    "run_worker_first": true
+  },
+  "triggers": {
+    "crons": ["* * * * *"]
+  },
+  "d1_databases": [
+    {
+      "binding": "DB",
+      "database_name": "science-tokyo-task-notifier",
+      "database_id": "REPLACE_WITH_DATABASE_ID",
+      "migrations_dir": "cloud/migrations"
+    }
+  ],
+  "vars": {
+    "TIMEZONE": "Asia/Tokyo",
+    "MOODLE_SYNC_DAYS": "120",
+    "DRY_RUN": "true",
+    "LINE_MONTHLY_LIMIT": "180"
+  }
+}
