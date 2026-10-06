@@ -239,8 +239,6 @@ function formatMonthKey(timestamp, timezone) {
 
 function cloudLmsConfig(env) {
   return {
-    lmsBaseUrl: env.LMS_BASE_URL || '',
-    moodleToken: env.MOODLE_TOKEN || '',
     moodleIcalUrl: env.MOODLE_ICAL_URL || '',
     moodleSyncDays: Number(env.MOODLE_SYNC_DAYS) || 120,
     timezone: env.TIMEZONE || 'Asia/Tokyo'

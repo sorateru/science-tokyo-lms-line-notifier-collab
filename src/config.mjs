@@ -35,8 +35,6 @@ export function getConfig() {
     host: process.env.HOST || '127.0.0.1',
     timezone: process.env.TIMEZONE || 'Asia/Tokyo',
     databasePath: path.resolve(process.env.DATABASE_PATH || './data/notifier.db'),
-    lmsBaseUrl: (process.env.LMS_BASE_URL || '').replace(/\/$/, ''),
-    moodleToken: process.env.MOODLE_TOKEN || '',
     moodleIcalUrl: process.env.MOODLE_ICAL_URL || '',
     moodleSyncDays: positiveNumber('MOODLE_SYNC_DAYS', 120),
     lineChannelAccessToken: process.env.LINE_CHANNEL_ACCESS_TOKEN || '',

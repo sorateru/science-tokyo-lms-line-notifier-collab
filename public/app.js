@@ -51,7 +51,7 @@ async function load() {
   const [{ tasks: loaded }, status] = await Promise.all([api('/api/tasks'), api('/api/status')]);
   tasks = loaded;
   statusElement.innerHTML = [
-    `<span class="badge ${status.lmsConfigured ? 'ok' : 'warn'}">LMS ${status.lmsConfigured ? status.lmsSource === 'ical' ? 'カレンダー接続' : 'API接続' : '未設定'}</span>`,
+    `<span class="badge ${status.lmsConfigured ? 'ok' : 'warn'}">LMS ${status.lmsConfigured ? 'カレンダー接続' : '未設定'}</span>`,
     `<span class="badge ${status.lineConfigured && !status.dryRun ? 'ok' : 'warn'}">LINE ${status.dryRun ? 'テストモード' : status.lineConfigured ? '接続設定済み' : '未設定'}</span>`,
     `<span class="badge">${escapeHtml(status.timezone)}</span>`,
     status.lastSyncAt
